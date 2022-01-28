@@ -25,6 +25,13 @@ async def on_message(message):
       item=news_list[i]      
       await message.channel.send(item['link'])
 
+  if message.content.startswith('/2'):
+    clients = gnewsclient.NewsClient(language='english',location='world',topic='health')
+    news_list = clients.get_news()    
+    for i in range(5):
+      item=news_list[i]      
+      await message.channel.send(item['link'])
+
   if message.content.startswith('/3'):
     clientss = gnewsclient.NewsClient(language='english',  location='world',topic='entertainment')
     news_lists = clientss.get_news()   
